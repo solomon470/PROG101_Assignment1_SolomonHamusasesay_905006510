@@ -1,0 +1,84 @@
+// ==========================================
+// Program Name: Freetown Flood Early Warning System (FeWES)
+// Author: William
+// Course: PROG101 - Principles of Programming Logic and Design
+// Institution: Limkokwing University of Creative Technology[cite: 1]
+// ==========================================
+
+Module MainProgram()
+    // Constants definition
+    Constant REAL WARNING_THRESHOLD = 1.5
+    Constant REAL CRITICAL_THRESHOLD = 2.5
+
+    // Variables definition
+    REAL currentWaterLevel
+    BOOLEAN systemActive = TRUE
+
+    Display "Initializing FeWES Logic for Freetown Communities..."
+    
+    // Repetition Structure: Continuous 24/7 monitoring loop
+    While systemActive == TRUE
+        
+        // Call function to get input
+        currentWaterLevel = ReadWaterSensor()
+        
+        // Call module with decision structures
+        Call ProcessAlertLevel(currentWaterLevel, WARNING_THRESHOLD, CRITICAL_THRESHOLD)
+        
+        // Check maintenance signal
+        If CheckMaintenanceSignal() == TRUE Then
+            systemActive = FALSE
+        End If
+        
+        // Simulated delay between checks
+        WaitMinutes(5)
+        
+    End While
+    
+    Display "System offline for scheduled maintenance."
+End Module
+
+
+// Function to read sensor data and return a REAL number[cite: 2, 3]
+Function REAL ReadWaterSensor()
+    REAL sensorReading
+    Input sensorReading
+    Return sensorReading
+End Function
+
+
+// Modular Design using Decision Structures (If-Else & Boolean Logic)[cite: 2, 3]
+Module ProcessAlertLevel(REAL level, REAL warnLimit, REAL critLimit)
+    
+    If level < warnLimit Then
+        Display "Water Level: ", level, "m. Status: SAFE. Normal river conditions."
+        
+    Else If level >= warnLimit AND level < critLimit Then
+        Display "Water Level: ", level, "m. Status: WARNING! Water is rising."
+        Call SendSMSAlert("WARNING: Water levels rising. Move valuables to higher ground.")
+        
+    Else
+        Display "Water Level: ", level, "m. Status: DANGER! CRITICAL FLOOD RISK!"
+        Call TriggerEmergencySirens()
+        Call SendSMSAlert("EMERGENCY: FLOOD IMMINENT! EVACUATE IMMEDIATELY TO SAFE ZONES!")
+        
+    End If
+    
+End Module
+
+
+// Supporting Modules for Output Actions[cite: 2, 3]
+Module SendSMSAlert(STRING message)
+    Display "[SMS Broadcast Gateway]: ", message
+End Module
+
+
+Module TriggerEmergencySirens()
+    Display "[HARDWARE ACTION]: Sounding community alarm sirens across low-lying zones!"
+End Module
+
+Function BOOLEAN CheckMaintenanceSignal()
+    BOOLEAN maintenanceRequested = FALSE
+    // Returns false unless manual technician override is triggered
+    Return maintenanceRequested
+End Function
