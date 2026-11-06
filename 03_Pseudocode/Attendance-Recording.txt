@@ -1,0 +1,23 @@
+BEGIN
+
+    DISPLAY "ATTENDANCE RECORDING"
+
+    INPUT StudentID
+
+    IF StudentID does not exist THEN
+        DISPLAY "Student not registered"
+
+    ELSE
+        DISPLAY StudentName
+        INPUT AttendanceStatus
+
+        IF AttendanceStatus = "Present" OR AttendanceStatus = "Absent" THEN
+            SAVE StudentID, CurrentDate, AttendanceStatus
+            DISPLAY "Attendance recorded successfully"
+        ELSE
+            DISPLAY "Invalid attendance status"
+        END IF
+
+    END IF
+
+END
