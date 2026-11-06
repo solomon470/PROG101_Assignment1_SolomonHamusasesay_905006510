@@ -1,0 +1,17 @@
+BEGIN
+
+    DISPLAY "SEARCH STUDENT RECORDS"
+
+    INPUT StudentID
+
+    SEARCH for StudentID
+
+    IF StudentID exists THEN
+        DISPLAY StudentName
+        DISPLAY StudentClass
+        DISPLAY AttendanceHistory
+    ELSE
+        DISPLAY "Student record not found"
+    END IF
+
+END
