@@ -10,3 +10,7 @@
 Output refers to the information produced by the computer after processing the data.
 In the School Attendance Management System, the output includes student details, registration confirmation messages, attendance records and attendance reports.
 The system also displays the number of days a student was present or absent and the attendance percentage.
+## 4. Variables and Constants
+Variables are used to store information that can change while the system is running. Examples include StudentID, StudentName, StudentClass, AttendanceStatus, PresentDays and AbsentDays.
+Constants are values that remain the same throughout the program. Examples include SYSTEM_NAME, PRESENT and ABSENT.
+They help the system use fixed information consistently.
