@@ -1,0 +1,30 @@
+BEGIN
+
+    DISPLAY "ATTENDANCE REPORT"
+
+    INPUT StudentID
+
+    SEARCH for attendance records
+
+    IF StudentID exists THEN
+        COUNT PresentDays
+        COUNT AbsentDays
+
+        TotalDays = PresentDays + AbsentDays
+
+        IF TotalDays > 0 THEN
+            AttendancePercentage = (PresentDays / TotalDays) * 100
+        ELSE
+            AttendancePercentage = 0
+        END IF
+
+        DISPLAY StudentName
+        DISPLAY PresentDays
+        DISPLAY AbsentDays
+        DISPLAY AttendancePercentage
+
+    ELSE
+        DISPLAY "Student record not found"
+    END IF
+
+END
