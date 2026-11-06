@@ -36,4 +36,5 @@ The main objectives of SAMS are:
     - Pseudocode – for describing the system's operations.
 
   ## Conclusion
-The School Attendance Management System is designed to make student attendance recording easier and more organised. It demonstrates how programming logic and algorithms can be used to solve a common problem in schools.
+The School Attendance Management System is designed to make student attendance recording easier and more organised. It demonstrates how programming logic and algorithms can be used to solve a common problem in schools
+- 06_Flowcharts/
