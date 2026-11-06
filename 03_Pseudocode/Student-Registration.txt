@@ -1,0 +1,21 @@
+BEGIN
+
+    DISPLAY "STUDENT REGISTRATION"
+
+    INPUT StudentID
+    INPUT StudentName
+    INPUT StudentClass
+
+    IF StudentID already exists THEN
+        DISPLAY "Student ID already registered"
+
+    ELSE IF any required detail is empty THEN
+        DISPLAY "Please complete all details"
+
+    ELSE
+        SAVE StudentID, StudentName, StudentClass
+        DISPLAY "Student registered successfully"
+
+    END IF
+
+END
